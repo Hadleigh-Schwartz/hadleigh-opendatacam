@@ -415,7 +415,7 @@ def openimages_to_yolo(input_anns, out_folder):
 openimages_to_yolo("timesquare-5-12-21-gt-openimages.csv", "timesquare-5-12-2-gt-yolo")
 
 
-
+FILTER = [0]
 def opendatacamyolo_to_relxywh(yolo_anns, out_folder):
 	"""Convert opendatacamyolo format to relxywh
 	with one file per frame
@@ -434,10 +434,12 @@ def opendatacamyolo_to_relxywh(yolo_anns, out_folder):
 			if det_num != 1:
 				outfile.write("\n")
 
-			
-			new_line = str(det["class_id"]) + " " + str(det["confidence"]) + " " + str(center_x) + " " + str(center_y) + " " + str(width) + " " + str(height)
-			outfile.write(new_line)
-			det_num = det_num + 1
+
+			class_id = det["class_id"]
+			if class_id in FILTER:	
+				new_line = str(class_id) + " " + str(det["confidence"]) + " " + str(center_x) + " " + str(center_y) + " " + str(width) + " " + str(height)
+				outfile.write(new_line)
+				det_num = det_num + 1
 
 		outfile.close()
 
