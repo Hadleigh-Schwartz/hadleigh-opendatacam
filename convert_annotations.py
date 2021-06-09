@@ -36,7 +36,7 @@ def get_resolution(video):
 	return (H, W)
 
 
-	
+
 
 def opendatacamyolo_to_relxywh(yolo_anns, out_folder, class_filter):
 	"""Convert opendatacamyolo format to relxywh
@@ -46,8 +46,23 @@ def opendatacamyolo_to_relxywh(yolo_anns, out_folder, class_filter):
 	Only include annotations for objects whose class_id is in class_filter
 	"""
 
+	#make sure there is [ at the beginning, a ] at the end of the file, and no extraneous comma
+	opendatacam_anns = open(yolo_anns, "r").read()
+	opendatacam_anns = opendatacam_anns.replace("}, \n{", "},{")
+	final = ""
+	test = open("test", "w")
+	if opendatacam_anns[0] != "[":
+		final = "[" + opendatacam_anns[:-2] 
+	else:
+		final = opendatacam_anns[:-2] 
 
-	input_anns = json.loads(open(yolo_anns, "r").read())
+	if opendatacam_anns[-2] == ",":
+		print("needs replacing")
+		final = final + "]"
+		test.write(final)
+
+
+	input_anns = json.loads(final)
 
 	for frame_data in input_anns:
 		frame_id = frame_data["frame_id"]
@@ -178,7 +193,23 @@ def opendatacamyolo_to_absxywh(yolo_anns, out_folder, class_filter):
 	(H, W) = (720, 1280) #IMPORTANT
 
 
-	input_anns = json.loads(open(yolo_anns, "r").read())
+
+	#make sure there is [ at the beginning, a ] at the end of the file, and no extraneous comma
+	opendatacam_anns = open(yolo_anns, "r").read()
+	opendatacam_anns = opendatacam_anns.replace("}, \n{", "},{")
+	final = ""
+	test = open("test", "w")
+	if opendatacam_anns[0] != "[":
+		final = "[" + opendatacam_anns[:-2] 
+	else:
+		final = opendatacam_anns[:-2] 
+
+	if opendatacam_anns[-2] == ",":
+		print("needs replacing")
+		final = final + "]"
+		test.write(final)
+
+	input_anns = json.loads(final)
 
 	for frame_data in input_anns:
 		frame_id = frame_data["frame_id"]
@@ -258,6 +289,7 @@ call the appropriate functions according to command line args
 if args['input_format'] == "opendatacamyolo" and args['output_format'] == "relxywh":
 	#make sure path to input annotations provided is a file
 	file_exists = os.path.isfile(args["input"]) 
+	
 
 	#create output_folder if necessary
 	out_dir = args["output"]
@@ -273,6 +305,8 @@ if args['input_format'] == "opendatacamyolo" and args['output_format'] == "relxy
 	class_filter = [int(i) for i in args["class_filter"]]
 	if file_exists:
 		opendatacamyolo_to_relxywh(args["input"], out_dir, class_filter)
+	else:
+		print("Invalid input file")
 
 elif args['input_format'] == "opendatacamyolo" and args['output_format'] == "absxywh":
 	#make sure path to input annotations provided is a file
@@ -292,10 +326,15 @@ elif args['input_format'] == "opendatacamyolo" and args['output_format'] == "abs
 	class_filter = [int(i) for i in args["class_filter"]]
 	if file_exists:
 		opendatacamyolo_to_absxywh(args["input"], out_dir, class_filter)
+	else:
+		print("Invalid input file")
 
 elif args['input_format'] == "faster" and args['output_format'] == "yolo":
 	#make sure path to input annotations provided is a file
 	file_exists = os.path.isfile(args["input"]) 
+	if not file_exists:
+		print("Invalid input file")
+		exit()
 
 	faster_to_openimages(args["input"], "temp.csv")
 
@@ -316,6 +355,8 @@ elif args['input_format'] == "faster" and args['output_format'] == "yolo":
 	openimages_to_yolo("temp.csv", out_dir, class_filter)
 
 	os.system("rm temp.csv")
+else:
+	print("Unsupposrted conversion")
 
 
 
