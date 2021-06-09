@@ -152,7 +152,7 @@ ImageID, Source, LabelName, Confidence, XMin (absolute), XMax, YMin, YMax, IsOcc
 
 3.  **yolo:** a  folder containing one .txt for each frame, in which each line of form
 ```
-	class_id rel_centerx rel_centery rel_width rel_height
+class_id rel_centerx rel_centery rel_width rel_height
 ```
 
 represents one detection in that frame.
@@ -178,13 +178,13 @@ See[ this](https://github.com/rafaelpadilla/review_object_detection_metrics/tree
 ```
 [
 		{
-"image_id": 0,
- "category_id": 1, 
-"bbox": [abs_xmin, abs_ymin, abs_xmax, abs_ymax], 
+			"image_id": 0,
+			 "category_id": 1, 
+			"bbox": [abs_xmin, abs_ymin, abs_xmax, abs_ymax], 
 
-"confidence_score": 0.9972374439239502
-}, ....
-	]
+			"confidence_score": 0.9972374439239502
+		}, ....
+]
 ```
 image_id should be the frame number in the video (zero-indexed)
 
@@ -204,7 +204,7 @@ Run it with the following parameters:
 
 
 
-*   - i :  path to input annotations
+*   -i :  path to input annotations
 *   -if : format of input annotations
 *   -o : path to put output annotations at (typically a folder name)
 *   -of : desired format of output annotations
