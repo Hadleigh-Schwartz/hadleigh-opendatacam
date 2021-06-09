@@ -227,6 +227,8 @@ To evaluate annotations, use the tool and follow the instructions provided here:
 
 This module re-implements existing object detection evaluation methods  (e.g., AP, mAP, AP per class), but provides usability and flexibility between formats. It also provides a helpful GUI for loading and visualizing annotations on individual frames (but unlike my code for visualizing annotations, it does not provide functionality for exporting annotated videos). 
 
-Note that although it is compatible with many different annotation formats, it does not support opendatacamyolo. You will need to use convert_annotations.py to convert the json file outputted by opendatacam to an accepted ground truth annotation format - I recommend converting to yolo (i.e., opendatacam -> yolo). I recommend using relxywh (corresponding to the GUI’s ) as the det annotation format. 
+Note that although this tool is compatible with many different annotation formats, it does not support opendatacamyolo. You will need to use convert_annotations.py to convert the json file outputted by opendatacam to an accepted ground truth annotation format - I recommend converting to yolo (i.e., opendatacam -> yolo). I recommend using relxywh (corresponding to the GUI’s ) as the det annotation format. 
 
 You will also need to provide a folder containing an image file for each frame of the video. You cannot load a video. Use the decompose() function in video_utils.py to generate this from video. Lastly, you will need to provide a file in the “classes” field - this file allows the evaluator to accurately map class id’s to class names. Use the file classes.txt for this. 
+
+![alt text](Isolated.png "Title")
