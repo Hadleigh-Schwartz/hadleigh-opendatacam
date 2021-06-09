@@ -243,4 +243,4 @@ Note that although this tool is compatible with many different annotation format
 
 You will also need to provide a folder containing an image file for each frame of the video. You cannot load a video. Use the decompose() function in video_utils.py to generate this from video. Lastly, you will need to provide a file in the “classes” field - this file allows the evaluator to accurately map class id’s to class names. Use the file classes.txt for this. 
 
-![Evaluator GUI](/evaluator-gui.png)
+![Evaluator GUI](/assets/evaluator-gui.png)
