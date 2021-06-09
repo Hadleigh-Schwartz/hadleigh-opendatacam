@@ -48,8 +48,20 @@ network={
 ```
 
 
-5. Add custom image 
-
+5. Add the custom image. scp custom-opendatacam.tar.gz to your Jetson machine. Then run the following command.
+```
+sudo docker load < custom-opendatacam.tar.gz
+```
+Run 
+```
+sudo docker images
+```
+to confirm that the image has been loaded. Now edit the "image" field in docker-compose.yml to be custom-opendatacam, so it looks like this:
+```
+opendatacam:
+    restart: always
+    image: custom-opendatacam
+```
 
 # Running opendatacam on a Jetson computer
 
