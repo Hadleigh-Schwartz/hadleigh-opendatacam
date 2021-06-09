@@ -193,17 +193,11 @@ image_id should be the frame number in the video (zero-indexed)
 
 
 convert_annotations.py can currently perform the following conversions:
-
-
-
 *   opendatacamyolo -> relxywh
 *   opendatacamyolo -> absxywh
 *   faster -> yolo
 
 Run it with the following parameters: 
-
-
-
 *   -i :  path to input annotations
 *   -if : format of input annotations
 *   -o : path to put output annotations at (typically a folder name)
@@ -214,9 +208,6 @@ Run it with the following parameters:
 ### Visualizing annotations 
 
 visual_py contains functions for visualizing annotations on an individual frame of a video, and visualizing annotations on the whole video. Run it with the following parameters
-
-
-
 *   -i path to video to annotate
 *   -a path to annotations corresponding to video
 *   -f annotation format 
