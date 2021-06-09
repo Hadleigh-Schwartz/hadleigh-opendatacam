@@ -177,8 +177,8 @@ This format is exclusively being used for ground truths - this is why it doesn't
 class_id confidence  rel_centerx rel_centery rel_width rel_height
 ```
 
-represents one detection in that frame
-See[ this](https://github.com/rafaelpadilla/review_object_detection_metrics/tree/main/data/database/dets/rel_xywh) file for an example. Note the only difference between this format and the yolo format is the inclusion of confidence score
+represents one detection in that frame.
+See files [ here](https://github.com/rafaelpadilla/review_object_detection_metrics/tree/main/data/database/dets/rel_xywh) file for an example. Note the only difference between this format and the yolo format is the inclusion of confidence score
 
 
 
