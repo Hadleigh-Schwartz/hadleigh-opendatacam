@@ -56,7 +56,7 @@ Run
 ```
 sudo docker images
 ```
-to confirm that the image has been loaded. Now edit the "image" field in docker-compose.yml to be custom-opendatacam, so it looks like this:
+to confirm that the image has been loaded (you should see custom-opendatacam listed). Now edit the "image" field in docker-compose.yml to be custom-opendatacam, so it looks like this:
 ```
 opendatacam:
     restart: always
