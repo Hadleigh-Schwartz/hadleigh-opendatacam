@@ -1,5 +1,5 @@
 # hadleigh-opendatacam
-This repository contains code for an e2e implementation of object detection on opendatacam, supporting steps from initial video upload to visualization and evaluation of generated annotations. It includes 
+This repository contains code for an end-to-end implementation of object detection on opendatacam, supporting and streamlining steps from initial video upload to evaluation of generated annotations. It includes 
 1) A guide and code for setting up and running a custom version of opendatacam on a Jetson Nano or Xavier. 
 2) Various utility tools for analyzing, formatting, and converting object detection annotations.
 3) Sample videos and annotations in various formats.
