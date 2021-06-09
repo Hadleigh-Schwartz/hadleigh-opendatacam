@@ -7,7 +7,7 @@ This repository contains code and files used in the opendatacam social interacti
 
 # Initial setup 
 
-Once you have set up your Jetson computer and followed the instructions [here](https://github.com/opendatacam/opendatacam) to set up the original version of opendatacam on your machine, follow these instructions. This will prepare you to use our custom version of opendatacam and run start_cam.sh. You only need to do this once. 
+Once you have set up your Jetson computer and followed the instructions [here](https://github.com/opendatacam/opendatacam) to set up the original version of opendatacam on your machine, complete the steps below. This will prepare you to use our custom version of opendatacam and run start_cam.sh. You only need to do this once. 
 
 
 
