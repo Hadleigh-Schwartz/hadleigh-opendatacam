@@ -13,7 +13,7 @@ Once you have set up your Jetson computer and followed the instructions [here](h
 
 1. Mount a directory to store opendatacam’s annotations. To do so, modify docker-compose.yml by adding an entry in the volumes field under the opendatacam service. For example, I mounted a folder  /home/hadleigh/annotations by adding an entry under volumes as such:  
 
-    ```
+```
 volumes:
       - './config.json:/var/local/opendatacam/config.json'
       - '/home/hadleigh/annotations:/var/local/opendatacam/annotations'
@@ -22,7 +22,7 @@ volumes:
 
 2. Edit the entry of the “file” field in config.json to be empty, as such:
 
-    ```
+ ```
 "VIDEO_INPUTS_PARAMS": {
  		 "file": "",
 ```
@@ -30,17 +30,17 @@ volumes:
 
 3. Install a few necessary libraries.
 
-    ```
-      sudo apt-get update 
-	sudo apt-get install wpasupplicant 
-	sudo apt-get install inotify-tools
-      sudo apt-get install dhclient
+```
+sudo apt-get update 
+sudo apt-get install wpasupplicant 
+sudo apt-get install inotify-tools
+sudo apt-get install dhclient
 ```
 
 
 4. Edit the file /etc/wpa-supplicant.conf to contain ssid and password for your wlan0 network.  	
 
-    ```
+```
 network={
        ssid="network_name"
        psk="password"
@@ -145,30 +145,28 @@ Converting between annotation formats is critical for comparing annotations made
 
 2. **openimages:** a csv file, where each row is  the form
 
-    ```
+```
 ImageID, Source, LabelName, Confidence, XMin (absolute), XMax, YMin, YMax, IsOccluded, IsTruncated, IsGroupOf, IsDepiction, IsInside
 ```
 
 
 3.  **yolo:** a  folder containing one .txt for each frame, in which each line of form
+```
+	class_id rel_centerx rel_centery rel_width rel_height
+```
 
-	`class_id rel_centerx rel_centery rel_width rel_height` 
-
-	represents one detection in that frame
-
-
-    This format is exclusively being used for ground truths - this is why it doesn't include a confidence score
+represents one detection in that frame.
+This format is exclusively being used for ground truths - this is why it doesn't include a confidence score
 
 
 
 4.  **relxywh:** folder containing one .txt for each frame, in which each line of form
+```
+class_id confidence  rel_centerx rel_centery rel_width rel_height
+```
 
-	`class_id confidence  rel_centerx rel_centery rel_width rel_height`
-
-	represents one detection in that frame
-
-
-    See[ this](https://github.com/rafaelpadilla/review_object_detection_metrics/tree/main/data/database/dets/rel_xywh) file for an example. Note the only difference between this format and the yolo format is the inclusion of confidence score
+represents one detection in that frame
+See[ this](https://github.com/rafaelpadilla/review_object_detection_metrics/tree/main/data/database/dets/rel_xywh) file for an example. Note the only difference between this format and the yolo format is the inclusion of confidence score
 
 
 
@@ -188,11 +186,11 @@ ImageID, Source, LabelName, Confidence, XMin (absolute), XMax, YMin, YMax, IsOcc
 }, ....
 	]
 ```
-
-
-	
-
 image_id should be the frame number in the video (zero-indexed)
+
+
+
+
 
 convert_annotations.py can currently perform the following conversions:
 
