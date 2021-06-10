@@ -9,7 +9,7 @@ I have made very slight modifications to the code and system from the [original 
 
 ![Custom opendatacam](/assets/custom-openatacam.png)
 
-Note that the tracking information - specifically, a unique ID to identify objects across frames and a bearing value to denote the object's direction of movement - are not included in the intercepted annotations. Intercepted annotations are the <em> raw <em> YOLO annotations, collected in realtime from the darknet annotations stream.
+Note that the tracking information - specifically, a unique ID to identify objects across frames and a bearing value to denote the object's direction of movement - are not included in the intercepted annotations. Intercepted annotations are the <em> raw </em> YOLO annotations, collected in realtime from the darknet annotations stream.
 
 
 # Initial setup 
