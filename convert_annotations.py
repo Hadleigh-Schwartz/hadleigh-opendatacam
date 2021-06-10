@@ -198,7 +198,7 @@ def opendatacamyolo_to_absxywh(yolo_anns, out_folder, class_filter):
 	opendatacam_anns = open(yolo_anns, "r").read()
 	opendatacam_anns = opendatacam_anns.replace("}, \n{", "},{")
 	final = ""
-	test = open("test", "w")
+
 	if opendatacam_anns[0] != "[":
 		final = "[" + opendatacam_anns[:-2] 
 	else:
@@ -207,7 +207,6 @@ def opendatacamyolo_to_absxywh(yolo_anns, out_folder, class_filter):
 	if opendatacam_anns[-2] == ",":
 		print("needs replacing")
 		final = final + "]"
-		test.write(final)
 
 	input_anns = json.loads(final)
 
