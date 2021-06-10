@@ -1,2 +1,0 @@
-*.tar.gz filter=lfs diff=lfs merge=lfs -text
-custom-opendatacam.tar.gz filter=lfs diff=lfs merge=lfs -text
