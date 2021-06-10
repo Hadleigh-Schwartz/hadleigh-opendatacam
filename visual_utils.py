@@ -131,7 +131,7 @@ def get_resolution(video):
 
 
 
-def annotate_frame(frame, frame_num, resolution, input_annotations, annotation_format="opendatacam_yolo"):
+def annotate_frame(frame, frame_num, resolution, input_annotations, annotation_format="opendatacamyolo"):
 	"""
 	Returns image object representing image with bounding box superimposed
 	
@@ -153,10 +153,27 @@ def annotate_frame(frame, frame_num, resolution, input_annotations, annotation_f
 	confidences = []
 	classIDs = []
 
-	if annotation_format == "opendatacam_yolo":
-		detection_json = open(input_annotations, 'r')
-		json_string = detection_json.read()
-		frames_data = json.loads(json_string)
+	if annotation_format == "opendatacamyolo":
+	
+		
+
+
+		#make sure there is [ at the beginning, a ] at the end of the file, and no extraneous comma
+		opendatacam_anns = open(input_annotations, "r").read()
+		opendatacam_anns = opendatacam_anns.replace("}, \n{", "},{")
+		final = ""
+
+		if opendatacam_anns[0] != "[":
+			final = "[" + opendatacam_anns[:-2] 
+		else:
+			final = opendatacam_anns[:-2] 
+
+		if opendatacam_anns[-2] == ",":
+			print("Fixing small formatting errors in opendatacamyolo annotations...")
+			final = final + "]"
+
+		frames_data = json.loads(final)
+
 
 		for frame_data in frames_data:
 			frame_id = frame_data["frame_id"]
