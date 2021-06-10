@@ -126,7 +126,7 @@ Converting between annotation formats is critical for comparing annotations made
 
 
 
-1. **opendatacam_yolo**: a json file of the form
+1. **opendatacamyolo**: a json file of the form
 
 	
 
