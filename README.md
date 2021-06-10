@@ -55,7 +55,7 @@ network={
 ```
 
 
-5. Add the custom image. Download custom-opendatacam.tar.gz [here]() and scp it to your Jetson machine. Then run the following command.
+5. Add the custom image. Download custom-opendatacam.tar.gz [here](https://drive.google.com/file/d/1y_7vXTpbCkUzcTiA44W37gC0Rk2A70gA/view?usp=sharing) and scp it to your Jetson machine. Then run the following command.
 ```
 sudo docker load < custom-opendatacam.tar.gz
 ```
