@@ -7,7 +7,7 @@ This repository contains code for a streamlined end-to-end implementation of obj
 # Modifications to original opendatacam
 I have made very slight modifications to the code and system from the [original opendatacam](https://github.com/opendatacam/opendatacam). Currently, my modifications simply intercept the YOLO annotations outputted by the darknet framework, compile them into a single JSON file, and export them into a mounted volume for access from the Jetson machine. This process is boxed in red in the system design diagram below. 
 
-![Custom opendatacam](/assets/custom-opendatacam.png)
+![Custom opendatacam](/assets/custom-openatacam.png)
 
 
 # Initial setup 
