@@ -226,7 +226,7 @@ Run it with the following parameters:
 
 ### Visualizing annotations 
 
-visual_py contains functions for visualizing annotations on an individual frame of a video, and visualizing annotations on the whole video. Run it with the following parameters
+visual_utils.py contains functions for visualizing annotations on an individual frame of a video, and visualizing annotations on the whole video. Run it with the following parameters
 *   -i path to video to annotate
 *   -a path to annotations corresponding to video
 *   -f annotation format 
