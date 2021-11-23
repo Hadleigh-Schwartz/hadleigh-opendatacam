@@ -248,6 +248,6 @@ This module re-implements existing object detection evaluation methods  (e.g., A
 
 Note that although this tool is compatible with many different annotation formats, it does not support opendatacamyolo. You will need to use convert_annotations.py to convert the json file outputted by opendatacam to an accepted ground truth annotation format - I recommend converting to yolo (i.e., opendatacam -> yolo). I recommend using relxywh (corresponding to the GUI’s ) as the det annotation format. 
 
-You will also need to provide a folder containing an image file for each frame of the video. You cannot load a video. Use the decompose() function in video_utils.py to generate this from video. Lastly, you will need to provide a file in the “classes” field - this file allows the evaluator to accurately map class id’s to class names. Use the file classes.txt for this. 
+You will also need to provide a folder containing an image file for each frame of the video. You cannot load a video. Use the decompose() function in video_utils.py to generate this from video. Lastly, you will need to provide a file in the “classes” field - this file allows the evaluator to map class id’s to class names. Use the file classes.txt for this. 
 
 ![Evaluator GUI](/assets/evaluator-gui.png)
